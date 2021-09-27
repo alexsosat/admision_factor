@@ -19,7 +19,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.9.2"
+  flutter_native_splash: ^1.2.4
   flutter_lints: ^1.0.0
+
+flutter_native_splash:
+  color: "#6E56C6"
+  image: "assets/images/splash_screen/splash.png"
+  android: true
+  ios: true
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
 
 flutter_icons:
   android: true
