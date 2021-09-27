@@ -1,3 +1,4 @@
+import 'package:admision_factor/src/form/form_view.dart';
 import 'package:admision_factor/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class ResultsView extends StatelessWidget {
   Future<String> tempFuture() async {
     await Future.delayed(const Duration(seconds: 2));
 
-    return "Aprobado";
+    return "No Aprobado";
   }
 
   @override
@@ -80,9 +81,20 @@ class ResultsView extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.restorablePopAndPushNamed(context, FormView.routeName);
+            },
             child: const Text("Volver a intentar con diferentes valores"),
-          )
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey,
+            ),
+            child: const Text("Regresar al inicio"),
+          ),
         ],
       ),
     );

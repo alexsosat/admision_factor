@@ -122,7 +122,8 @@ class _FormViewState extends State<FormView> {
                   model.gre = int.parse(_greController.text);
                   model.gpa = int.parse(_gpaController.text);
                   //TODO: Send model to API
-                  Navigator.restorablePushNamed(context, ResultsView.routeName);
+                  Navigator.restorablePopAndPushNamed(
+                      context, ResultsView.routeName);
                 }
               },
               child: const Text("Enviar"),
