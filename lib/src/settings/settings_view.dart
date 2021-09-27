@@ -71,6 +71,7 @@ class SettingsView extends StatelessWidget {
                 Image.asset("assets/images/um_logo.png"),
               ],
             ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
