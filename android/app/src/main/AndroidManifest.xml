@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.admision_factor">
    <application
-        android:label="admision_factor"
+        android:label="Admision factor"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
