@@ -7,14 +7,40 @@ class ResultsView extends StatelessWidget {
 
   static const routeName = '/results';
 
-  Future<String> tempFuture() async {
-    await Future.delayed(const Duration(seconds: 2));
-
-    return "No Aprobado";
-  }
-
   @override
   Widget build(BuildContext context) {
+    final String mlClass = ModalRoute.of(context)!.settings.arguments as String;
+
+    List<Widget> aprovedChildren = [
+      Text(
+        mlClass,
+        style: Theme.of(context).textTheme.headline4!.copyWith(
+              color: Colors.green,
+            ),
+      ),
+      const SizedBox(height: 20),
+      Text(
+        "¡Felicidades! estas viendo los frutos de tu esfuerzo",
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline5,
+      ),
+    ];
+
+    List<Widget> declinedChildren = [
+      Text(
+        mlClass,
+        style: Theme.of(context).textTheme.headline4!.copyWith(
+              color: Colors.red,
+            ),
+      ),
+      const SizedBox(height: 20),
+      Text(
+        "No te desanimes, esfuerzate y verás que las cosas saldrán bien",
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline5,
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Formulario'),
@@ -34,50 +60,9 @@ class ResultsView extends StatelessWidget {
             height: 190,
           ),
           const SizedBox(height: 20),
-          FutureBuilder<String>(
-            future: tempFuture(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data == "Aprobado") {
-                  return Column(
-                    children: [
-                      Text(
-                        snapshot.data!,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                              color: Colors.green,
-                            ),
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        "¡Felicidades! estas viendo los frutos de tu esfuerzo",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                    ],
-                  );
-                } else {
-                  return Column(
-                    children: [
-                      Text(
-                        snapshot.data!,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                              color: Colors.red,
-                            ),
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        "No te desanimes, esfuerzate y verás que las cosas saldrán bien",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                    ],
-                  );
-                }
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
+          Column(
+            children:
+                (mlClass == "Aprobado") ? aprovedChildren : declinedChildren,
           ),
           const SizedBox(height: 40),
           ElevatedButton(

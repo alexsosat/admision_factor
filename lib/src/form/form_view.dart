@@ -1,3 +1,4 @@
+import 'package:admision_factor/src/form/api/api_call.dart';
 import 'package:admision_factor/src/form/widgets/radio_group.dart';
 import 'package:admision_factor/src/form/widgets/text_form_group.dart';
 import 'package:admision_factor/src/results/results_view.dart';
@@ -108,7 +109,7 @@ class _FormViewState extends State<FormView> {
             ),
             const SizedBox(height: 60),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (model.rank == null) {
                   setState(() {
                     showRankError = true;
@@ -119,11 +120,41 @@ class _FormViewState extends State<FormView> {
                   });
                 }
                 if (_formKey.currentState!.validate() && model.rank != null) {
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            CircularProgressIndicator(),
+                            SizedBox(width: 30),
+                            Text("Enviando datos"),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                   model.gre = int.parse(_greController.text);
                   model.gpa = int.parse(_gpaController.text);
-                  //TODO: Send model to API
-                  Navigator.restorablePopAndPushNamed(
-                      context, ResultsView.routeName);
+
+                  String? result = await postForm();
+                  Navigator.of(context).pop();
+                  if (result != null) {
+                    Navigator.restorablePopAndPushNamed(
+                      context,
+                      ResultsView.routeName,
+                      arguments: result,
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Error al enviar los datos"),
+                      ),
+                    );
+                  }
                 }
               },
               child: const Text("Enviar"),
