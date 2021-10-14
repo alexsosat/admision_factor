@@ -1,5 +1,5 @@
-Future<String?> postForm() async {
+Future<int?> postForm() async {
   await Future.delayed(const Duration(seconds: 3));
 
-  return "Aprobado";
+  return 1;
 }

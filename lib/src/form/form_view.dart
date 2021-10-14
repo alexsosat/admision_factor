@@ -140,7 +140,7 @@ class _FormViewState extends State<FormView> {
                   model.gre = int.parse(_greController.text);
                   model.gpa = int.parse(_gpaController.text);
 
-                  String? result = await postForm();
+                  int? result = await postForm();
                   Navigator.of(context).pop();
                   if (result != null) {
                     Navigator.restorablePopAndPushNamed(

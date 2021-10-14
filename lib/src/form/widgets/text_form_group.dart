@@ -25,7 +25,8 @@ class TextFormGroup extends StatelessWidget {
           controller: controller,
           keyboardType: TextInputType.number,
           inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+            FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+            FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
             LengthLimitingTextInputFormatter(3),
           ],
           validator: (value) {

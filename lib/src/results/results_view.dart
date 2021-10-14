@@ -9,11 +9,11 @@ class ResultsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String mlClass = ModalRoute.of(context)!.settings.arguments as String;
+    final int mlClass = ModalRoute.of(context)!.settings.arguments as int;
 
     List<Widget> aprovedChildren = [
       Text(
-        mlClass,
+        "Admitido",
         style: Theme.of(context).textTheme.headline4!.copyWith(
               color: Colors.green,
             ),
@@ -28,7 +28,7 @@ class ResultsView extends StatelessWidget {
 
     List<Widget> declinedChildren = [
       Text(
-        mlClass,
+        "No Admitido",
         style: Theme.of(context).textTheme.headline4!.copyWith(
               color: Colors.red,
             ),
@@ -55,14 +55,12 @@ class ResultsView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Image.asset(
-            "assets/images/app_logo.png",
-            height: 190,
-          ),
+          (mlClass == 1) ? const Icon(Icons.check,size: 190,color: Colors.green,):
+          const Icon(Icons.clear,size: 190,color: Colors.red,),
           const SizedBox(height: 20),
           Column(
             children:
-                (mlClass == "Aprobado") ? aprovedChildren : declinedChildren,
+                (mlClass == 1) ? aprovedChildren : declinedChildren,
           ),
           const SizedBox(height: 40),
           ElevatedButton(
