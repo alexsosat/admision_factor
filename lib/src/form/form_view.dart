@@ -137,10 +137,10 @@ class _FormViewState extends State<FormView> {
                       );
                     },
                   );
-                  model.gre = int.parse(_greController.text);
-                  model.gpa = int.parse(_gpaController.text);
+                  model.gre = double.parse(_greController.text);
+                  model.gpa = double.parse(_gpaController.text);
 
-                  int? result = await postForm();
+                  int? result = await postForm(model);
                   Navigator.of(context).pop();
                   if (result != null) {
                     Navigator.restorablePopAndPushNamed(

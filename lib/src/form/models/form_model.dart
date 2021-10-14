@@ -3,8 +3,8 @@ class MLModel {
   int? race;
   int? rank;
   int? income;
-  int? gpa;
-  int? gre;
+  double? gpa;
+  double? gre;
 
   MLModel({
     this.gender,
@@ -17,10 +17,10 @@ class MLModel {
 
   Map<String, dynamic> toMap() => {
         "gender": gender,
-        "race": race,
+        "ethnic": race,
         "gpa": gpa,
         "gre": gre,
         "income": income,
-        "rank": rank,
+        "prestige": rank,
       };
 }
