@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'form/tab_form_view.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
@@ -61,7 +62,18 @@ class MyApp extends StatelessWidget {
           // SettingsController to display the correct theme.
           theme: ThemeData(
             colorScheme: const ColorScheme.light(
-              primary: Color.fromRGBO(28, 183, 217, 1.0),
+              primary: Color.fromRGBO(215, 105, 150, 1.0),
+              secondary: Color.fromRGBO(234, 155, 195, 1.0),
+            ),
+              buttonTheme: const ButtonThemeData(
+                buttonColor: Color.fromRGBO(191, 20, 106, 1.0),
+                textTheme: ButtonTextTheme.primary,
+              ),
+            elevatedButtonTheme:  ElevatedButtonThemeData(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(191, 20, 106, 1.0),), //button color
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white,), //text (and icon)
+              ),
             ),
           ),
           darkTheme: ThemeData.dark(),
@@ -82,6 +94,8 @@ class MyApp extends StatelessWidget {
                     return const FormView();
                   case ResultsView.routeName:
                     return const ResultsView();
+                  case TabFormView.routeName:
+                    return const TabFormView();
                   default:
                     return const WelcomeView();
                 }

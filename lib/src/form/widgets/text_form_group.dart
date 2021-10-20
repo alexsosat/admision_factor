@@ -5,11 +5,13 @@ class TextFormGroup extends StatelessWidget {
   final String title;
   final String hint;
   final TextEditingController controller;
+  final TextInputAction action;
   const TextFormGroup({
     Key? key,
     required this.title,
     required this.hint,
     required this.controller,
+    this.action = TextInputAction.done,
   }) : super(key: key);
 
   @override
@@ -29,9 +31,16 @@ class TextFormGroup extends StatelessWidget {
             FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
             LengthLimitingTextInputFormatter(3),
           ],
+          decoration:  InputDecoration(
+              hintText: hint,
+          ),
+          textInputAction: action,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return "Introducir un número";
+              return "Favor de llenar el campo";
+            }
+            if(double.tryParse(value) == null){
+              return "Favor de introducir números";
             }
           },
         )

@@ -1,4 +1,5 @@
 import 'package:admision_factor/src/form/form_view.dart';
+import 'package:admision_factor/src/form/tab_form_view.dart';
 import 'package:admision_factor/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,7 @@ class WelcomeView extends StatelessWidget {
           ElevatedButton(
             onPressed: () => Navigator.restorablePushNamed(
               context,
-              FormView.routeName,
+              TabFormView.routeName,
             ),
             child: const Text("Comenzar"),
           ),
