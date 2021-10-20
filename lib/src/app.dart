@@ -1,4 +1,3 @@
-import 'package:admision_factor/src/form/form_view.dart';
 import 'package:admision_factor/src/results/results_view.dart';
 import 'package:admision_factor/src/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +75,22 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          darkTheme: ThemeData.dark(),
+          darkTheme: ThemeData(
+            colorScheme: const ColorScheme.dark(
+              primary: Color.fromRGBO(215, 105, 150, 1.0),
+              secondary: Color.fromRGBO(234, 155, 195, 1.0),
+            ),
+            buttonTheme: const ButtonThemeData(
+              buttonColor: Color.fromRGBO(191, 20, 106, 1.0),
+              textTheme: ButtonTextTheme.primary,
+            ),
+            elevatedButtonTheme:  ElevatedButtonThemeData(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(191, 20, 106, 1.0),), //button color
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white,), //text (and icon)
+              ),
+            ),
+          ),
           themeMode: settingsController.themeMode,
 
           // Define a function to handle named routes in order to support
@@ -90,8 +104,6 @@ class MyApp extends StatelessWidget {
                     return SettingsView(controller: settingsController);
                   case WelcomeView.routeName:
                     return const WelcomeView();
-                  case FormView.routeName:
-                    return const FormView();
                   case ResultsView.routeName:
                     return const ResultsView();
                   case TabFormView.routeName:

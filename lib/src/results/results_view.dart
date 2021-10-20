@@ -1,4 +1,4 @@
-import 'package:admision_factor/src/form/form_view.dart';
+import 'package:admision_factor/src/form/tab_form_view.dart';
 import 'package:admision_factor/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,18 +9,18 @@ class ResultsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int mlClass = ModalRoute.of(context)!.settings.arguments as int;
+    final String mlClass = ModalRoute.of(context)!.settings.arguments as String;
 
     List<Widget> aprovedChildren = [
       Text(
-        "Admitido",
+        "Benigno",
         style: Theme.of(context).textTheme.headline4!.copyWith(
-              color: Colors.green,
-            ),
+          color: Colors.green,
+        ),
       ),
       const SizedBox(height: 20),
       Text(
-        "¡Felicidades! estas viendo los frutos de tu esfuerzo",
+        "Nuestro modelo clasificó este tumor como benigno, recuerda visitar a tu doctor constantemente",
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline5,
       ),
@@ -28,14 +28,14 @@ class ResultsView extends StatelessWidget {
 
     List<Widget> declinedChildren = [
       Text(
-        "No Admitido",
+        "Maligno",
         style: Theme.of(context).textTheme.headline4!.copyWith(
-              color: Colors.red,
-            ),
+          color: Colors.red,
+        ),
       ),
       const SizedBox(height: 20),
       Text(
-        "No te desanimes, esfuerzate y verás que las cosas saldrán bien",
+        "Nuestro modelo clasificó este tumor como maligno, te recomendamos acudir a un médico lo antes posible",
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline5,
       ),
@@ -52,34 +52,37 @@ class ResultsView extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          (mlClass == 1) ? const Icon(Icons.check,size: 190,color: Colors.green,):
-          const Icon(Icons.clear,size: 190,color: Colors.red,),
-          const SizedBox(height: 20),
-          Column(
-            children:
-                (mlClass == 1) ? aprovedChildren : declinedChildren,
-          ),
-          const SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.restorablePopAndPushNamed(context, FormView.routeName);
-            },
-            child: const Text("Volver a intentar con diferentes valores"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            style: ElevatedButton.styleFrom(
-              primary: Colors.grey,
+      body: Padding(
+          padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                (mlClass == "B") ? const Icon(Icons.check,size: 190,color: Colors.green,):
+                const Icon(Icons.error_outline,size: 190,color: Colors.red,),
+                const SizedBox(height: 20),
+                Column(
+                  children:
+                  (mlClass == "B") ? aprovedChildren : declinedChildren,
+                ),
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.restorablePopAndPushNamed(context, TabFormView.routeName);
+                  },
+                  child: const Text("Realizar otra predicción"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey,
+                  ),
+                  child: const Text("Regresar al inicio"),
+                ),
+              ],
             ),
-            child: const Text("Regresar al inicio"),
-          ),
-        ],
-      ),
+          )
     );
   }
 }

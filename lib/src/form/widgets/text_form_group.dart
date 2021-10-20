@@ -28,8 +28,8 @@ class TextFormGroup extends StatelessWidget {
           keyboardType: TextInputType.number,
           inputFormatters: <TextInputFormatter>[
             FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
-            FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
-            LengthLimitingTextInputFormatter(3),
+            FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,5}')),
+            LengthLimitingTextInputFormatter(10),
           ],
           decoration:  InputDecoration(
               hintText: hint,

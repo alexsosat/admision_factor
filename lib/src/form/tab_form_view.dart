@@ -66,7 +66,7 @@ class _TabFormViewState extends State<TabFormView> {
         children: [
           //Radio
           FormViewTemplate(
-            section: "radio",
+            section: "Radio",
             imagePath: "assets/images/flutter_logo.png",
             onNext: (mean,se,worst){
               model.radius.assignValues(mean, se, worst);
@@ -76,7 +76,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Texture
           FormViewTemplate(
-            section: "textura",
+            section: "Textura",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -87,7 +87,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Perimeter
           FormViewTemplate(
-            section: "perímetro",
+            section: "Perímetro",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -98,7 +98,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Area
           FormViewTemplate(
-            section: "área",
+            section: "Área",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -109,7 +109,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Smoothness
           FormViewTemplate(
-            section: "suavidad",
+            section: "Suavidad",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -120,7 +120,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Compactness
           FormViewTemplate(
-            section: "compacidad",
+            section: "Compacidad",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -131,7 +131,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Concavity
           FormViewTemplate(
-            section: "concavidad",
+            section: "Concavidad",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -142,7 +142,7 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Concave points
           FormViewTemplate(
-            section: "puntos cóncavos",
+            section: "Puntos cóncavos",
             imagePath: "assets/images/flutter_logo.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
@@ -164,8 +164,9 @@ class _TabFormViewState extends State<TabFormView> {
 
           //Fractal Dimension
           FormViewTemplate(
-            section: "dimensión fractal",
+            section: "Dimensión fractal",
             imagePath: "assets/images/flutter_logo.png",
+            lastSection: true,
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst) async{
               model.fractalDimensions.assignValues(mean, se, worst);
@@ -189,7 +190,7 @@ class _TabFormViewState extends State<TabFormView> {
               );
 
               // Sending model to Api
-              int? result = await postBreastForm(model);
+              String? result = await postBreastForm(model);
               Navigator.of(context).pop();
 
               //Page routing

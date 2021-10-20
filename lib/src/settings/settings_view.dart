@@ -66,9 +66,13 @@ class SettingsView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/images/app_logo_grey.png"),
+                Image.asset("assets/images/app_logo_grey.png",
+                height: 75,
+                ),
                 const SizedBox(width: 30),
-                Image.asset("assets/images/um_logo.png"),
+                Image.asset("assets/images/um_logo.png",
+                height: 50,
+                ),
               ],
             ),
             const SizedBox(height: 30),

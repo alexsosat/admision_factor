@@ -1,4 +1,3 @@
-import 'package:admision_factor/src/form/form_view.dart';
 import 'package:admision_factor/src/form/tab_form_view.dart';
 import 'package:admision_factor/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,7 @@ class WelcomeView extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/app_logo.png",
-            height: 86,
+            height: 150,
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
