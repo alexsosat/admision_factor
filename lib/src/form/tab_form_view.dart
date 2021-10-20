@@ -67,7 +67,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Radio
           FormViewTemplate(
             section: "Radio",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/radius.jpg",
             onNext: (mean,se,worst){
               model.radius.assignValues(mean, se, worst);
               _goToView(++currentIndex);
@@ -77,7 +77,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Texture
           FormViewTemplate(
             section: "Textura",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/texture.jpg",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.texture.assignValues(mean, se, worst);
@@ -88,7 +88,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Perimeter
           FormViewTemplate(
             section: "Perímetro",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/perimeter.jpg",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.perimeter.assignValues(mean, se, worst);
@@ -99,7 +99,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Area
           FormViewTemplate(
             section: "Área",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/area.jpeg",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
           model.area.assignValues(mean, se, worst);
@@ -110,7 +110,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Smoothness
           FormViewTemplate(
             section: "Suavidad",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/smoothness.jpg",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.smoothness.assignValues(mean, se, worst);
@@ -121,7 +121,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Compactness
           FormViewTemplate(
             section: "Compacidad",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/compactness.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.compactness.assignValues(mean, se, worst);
@@ -132,7 +132,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Concavity
           FormViewTemplate(
             section: "Concavidad",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/concavity.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.concavity.assignValues(mean, se, worst);
@@ -143,7 +143,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Concave points
           FormViewTemplate(
             section: "Puntos cóncavos",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/concave_points.jpg",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.points.assignValues(mean, se, worst);
@@ -154,7 +154,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Symmetry
           FormViewTemplate(
             section: "Simetría",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/symmetry.png",
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst){
               model.symmetry.assignValues(mean, se, worst);
@@ -165,7 +165,7 @@ class _TabFormViewState extends State<TabFormView> {
           //Fractal Dimension
           FormViewTemplate(
             section: "Dimensión fractal",
-            imagePath: "assets/images/flutter_logo.png",
+            imagePath: "assets/images/references/fractal_dimmension.png",
             lastSection: true,
             onBack: ()=>_goToView(--currentIndex),
             onNext: (mean,se,worst) async{

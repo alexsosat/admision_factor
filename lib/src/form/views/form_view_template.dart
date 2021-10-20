@@ -32,8 +32,8 @@ class FormViewTemplate extends StatelessWidget {
       height: 250,
       width: 250,
       margin: const EdgeInsets.only(
-        top: 40,
-        bottom: 20,
+        top: 20,
+        bottom: 40,
       ),
       child: Image.asset(imagePath),
     );
@@ -67,92 +67,86 @@ class FormViewTemplate extends StatelessWidget {
       ],
     );
 
-    final form = Column(
-      children: [
-        row,
-        Container(
-          padding: const EdgeInsets.all(10),
-          child: TextFormGroup(
-            controller: _worstController,
-            title: "Peor registro de ${section.toLowerCase()}",
-            hint: "Escribe el peor registro",
-          ),
-        ),
-      ],
-    );
-
-    final navigationButtons = Align(
-      alignment: Alignment.topCenter,
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: SizedBox(
-                width: 210,
-                child: Text(
-                  section,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 36,
-                  ),
-                ),
-              ),
+    final form = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: [
+          row,
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextFormGroup(
+              controller: _worstController,
+              title: "Peor registro de ${section.toLowerCase()}",
+              hint: "Escribe el peor registro",
             ),
-            if (onBack != null)
-              Align(
-                alignment: Alignment.topLeft,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                    primary: Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-                  child: const Icon(Icons.chevron_left),
-                  onPressed: onBack!,
-                ),
-              ),
-            if (onNext != null)
-              Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                    primary: Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-                  child: Icon((lastSection)?Icons.done:Icons.chevron_right),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      double mean = double.parse(_meanController.text);
-                      double se = double.parse(_seController.text);
-                      double worst = double.parse(_worstController.text);
-                      onNext!(mean, se, worst);
-                    }
-                  },
-                ),
-              ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
 
-    return Stack(
-      children: [
-        Form(
-          key: _formKey,
-          child: ListView(
-            padding: const EdgeInsets.all(20.0),
-            children: [
-              image,
-              form,
-              const SizedBox(height: 50),
-            ],
+    final navigationButtons = Container(
+      padding: const EdgeInsets.all(20),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+              width: 210,
+              child: Text(
+                section,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 36,
+                ),
+              ),
+            ),
           ),
-        ),
-        navigationButtons,
-      ],
+          if (onBack != null)
+            Align(
+              alignment: Alignment.topLeft,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  primary: Colors.white,
+                  shape: const CircleBorder(),
+                ),
+                child: const Icon(Icons.chevron_left),
+                onPressed: onBack!,
+              ),
+            ),
+          if (onNext != null)
+            Align(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  primary: Colors.white,
+                  shape: const CircleBorder(),
+                ),
+                child: Icon((lastSection) ? Icons.done : Icons.chevron_right),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    double mean = double.parse(_meanController.text);
+                    double se = double.parse(_seController.text);
+                    double worst = double.parse(_worstController.text);
+                    onNext!(mean, se, worst);
+                  }
+                },
+              ),
+            ),
+        ],
+      ),
+    );
+
+    return Form(
+      key: _formKey,
+      child: ListView(
+        children: [
+          navigationButtons,
+          image,
+          form,
+        ],
+      ),
     );
   }
 }
