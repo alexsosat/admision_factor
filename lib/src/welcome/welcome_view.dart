@@ -34,17 +34,17 @@ class WelcomeView extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: const Text(
-                "Esta es una aplicación que utiliza inteligencia artificial para deducir si serás aceptado o no en una escuela estadounidense"),
+                "Esta es una aplicación que utiliza inteligencia artificial para detectar la presencia de cáncer en un tumor en la zona del busto"),
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: const Text(
-                "Recuerda que esto es solo la inferencia de una máquina y que el resultado real dependerá de tu esfuerzo. ¡Ánimo!"),
+                "Recuerda que esto es solo la inferencia de una máquina y que el resultado real dependerá de estudios médicos realizados por profesionales"),
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: const Text(
-                "A continuación se te pedirá contestar un set de preguntas necesarias para que la computadora pueda ser capaz de realizarlas operaciones para obtener tu resultado."),
+                "A continuación se te pedirá contestar un set de preguntas necesarias para que la computadora pueda ser capaz de realizar la predicción"),
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),

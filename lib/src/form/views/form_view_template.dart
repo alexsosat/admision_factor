@@ -1,18 +1,20 @@
 import 'package:admision_factor/src/form/widgets/text_form_group.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FormViewTemplate extends StatelessWidget {
   FormViewTemplate({
     Key? key,
     required this.section,
-    required this.imagePath,
+    this.infoText,
     this.onNext,
     this.onBack,
     this.lastSection = false,
   }) : super(key: key);
 
   final String section;
-  final String imagePath;
+  final String? infoText;
   final bool lastSection;
   final Function(double mean, double se, double wrst)? onNext;
   final Function()? onBack;
@@ -27,16 +29,6 @@ class FormViewTemplate extends StatelessWidget {
     _meanController.text = "345";
     _seController.text = "125.21";
     _worstController.text = "74.5";
-
-    final image = Container(
-      height: 250,
-      width: 250,
-      margin: const EdgeInsets.only(
-        top: 20,
-        bottom: 40,
-      ),
-      child: Image.asset(imagePath),
-    );
 
     final row = Row(
       mainAxisSize: MainAxisSize.max,
@@ -138,13 +130,52 @@ class FormViewTemplate extends StatelessWidget {
       ),
     );
 
+    final curiousTip = Container(
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.only(top: 30),
+      child: DottedBorder(
+        borderType: BorderType.RRect,
+        dashPattern: const [7],
+        strokeWidth: 3,
+        radius: const Radius.circular(12),
+        padding: const EdgeInsets.symmetric(
+          vertical: 6,
+          horizontal: 20,
+        ),
+        child: SizedBox(
+          height: 200,
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Dato importante:",
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Text(
+                  infoText!,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+
     return Form(
       key: _formKey,
       child: ListView(
         children: [
           navigationButtons,
-          image,
           form,
+          if (infoText != null) curiousTip,
         ],
       ),
     );

@@ -23,7 +23,7 @@ class _TabFormViewState extends State<TabFormView> {
   int currentIndex = 0;
   BreastModel model = BreastModel();
 
-  _goToView(int index){
+  _goToView(int index) {
     _controller.animateToPage(
       index,
       duration: pageTransitionDuration,
@@ -44,20 +44,20 @@ class _TabFormViewState extends State<TabFormView> {
           ),
         ],
         bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(30.0), // here the desired height
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: SmoothPageIndicator(
-                controller: _controller,
-                count: 10,
-                effect: WormEffect(
-                    activeDotColor: Theme.of(context).colorScheme.secondary,
-                    dotHeight: 12,
-                    dotWidth: 12,
-                ),
-                //onDotClicked: (index)=>_goToView(index),
+          preferredSize: const Size.fromHeight(30.0), // here the desired height
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: SmoothPageIndicator(
+              controller: _controller,
+              count: 10,
+              effect: WormEffect(
+                activeDotColor: Theme.of(context).colorScheme.secondary,
+                dotHeight: 12,
+                dotWidth: 12,
               ),
+              //onDotClicked: (index)=>_goToView(index),
             ),
+          ),
         ),
       ),
       body: PageView(
@@ -67,8 +67,9 @@ class _TabFormViewState extends State<TabFormView> {
           //Radio
           FormViewTemplate(
             section: "Radio",
-            imagePath: "assets/images/references/radius.jpg",
-            onNext: (mean,se,worst){
+            infoText:
+                "El cáncer de mama es el cáncer más frecuente en las mujeres en México y en el mundo",
+            onNext: (mean, se, worst) {
               model.radius.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -77,9 +78,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Texture
           FormViewTemplate(
             section: "Textura",
-            imagePath: "assets/images/references/texture.jpg",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                " El cáncer de mama es también el cáncer que más decesos produce en México y en el mundo",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.texture.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -88,9 +90,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Perimeter
           FormViewTemplate(
             section: "Perímetro",
-            imagePath: "assets/images/references/perimeter.jpg",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "Más de 1 millón de mujeres se detectan en el mundo anualmente con este padecimiento",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.perimeter.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -99,20 +102,22 @@ class _TabFormViewState extends State<TabFormView> {
           //Area
           FormViewTemplate(
             section: "Área",
-            imagePath: "assets/images/references/area.jpeg",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
-          model.area.assignValues(mean, se, worst);
-          _goToView(++currentIndex);
-          },
+            infoText:
+                "En México, el promedio de edad de diagnóstico de cáncer de mama es de 50 años",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
+              model.area.assignValues(mean, se, worst);
+              _goToView(++currentIndex);
+            },
           ),
 
           //Smoothness
           FormViewTemplate(
             section: "Suavidad",
-            imagePath: "assets/images/references/smoothness.jpg",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "El tabaquismo, el consumo de alcohol, la obesidad y el consumo crónico de esteroides son, entre otros, factores de riesgo para el cáncer de mama",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.smoothness.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -121,9 +126,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Compactness
           FormViewTemplate(
             section: "Compacidad",
-            imagePath: "assets/images/references/compactness.png",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "En México, el 70% de pacientes jóvenes que se presentan con cáncer de mama son detectadas en etapa avanzada.",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.compactness.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -132,9 +138,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Concavity
           FormViewTemplate(
             section: "Concavidad",
-            imagePath: "assets/images/references/concavity.png",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "Entre el 11 y 15% de los casos son de mujeres de 40 o menos años",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.concavity.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -143,9 +150,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Concave points
           FormViewTemplate(
             section: "Puntos cóncavos",
-            imagePath: "assets/images/references/concave_points.jpg",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "Realizar actividades físicas con frecuencia reduce el riesgo de padecer cáncer de mama",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.points.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -154,9 +162,10 @@ class _TabFormViewState extends State<TabFormView> {
           //Symmetry
           FormViewTemplate(
             section: "Simetría",
-            imagePath: "assets/images/references/symmetry.png",
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst){
+            infoText:
+                "A partir de los 25 años, es recomendable hacerse una revisión anual",
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) {
               model.symmetry.assignValues(mean, se, worst);
               _goToView(++currentIndex);
             },
@@ -165,10 +174,11 @@ class _TabFormViewState extends State<TabFormView> {
           //Fractal Dimension
           FormViewTemplate(
             section: "Dimensión fractal",
-            imagePath: "assets/images/references/fractal_dimmension.png",
+            infoText:
+                "Después de los 40 años, es recomendable hacerse una mamografía anual",
             lastSection: true,
-            onBack: ()=>_goToView(--currentIndex),
-            onNext: (mean,se,worst) async{
+            onBack: () => _goToView(--currentIndex),
+            onNext: (mean, se, worst) async {
               model.fractalDimensions.assignValues(mean, se, worst);
 
               showDialog(
@@ -207,10 +217,8 @@ class _TabFormViewState extends State<TabFormView> {
                   ),
                 );
               }
-
             },
           ),
-
         ],
       ),
     );
