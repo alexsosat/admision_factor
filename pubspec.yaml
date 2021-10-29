@@ -17,6 +17,7 @@ dependencies:
   http: ^0.13.4
   smooth_page_indicator: ^1.0.0+2
   dotted_border: ^2.0.0+1
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,7 @@ import 'package:admision_factor/src/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'form/tab_form_view.dart';
 import 'settings/settings_controller.dart';
@@ -64,15 +65,22 @@ class MyApp extends StatelessWidget {
               primary: Color.fromRGBO(215, 105, 150, 1.0),
               secondary: Color.fromRGBO(234, 155, 195, 1.0),
             ),
-              buttonTheme: const ButtonThemeData(
-                buttonColor: Color.fromRGBO(191, 20, 106, 1.0),
-                textTheme: ButtonTextTheme.primary,
-              ),
-            elevatedButtonTheme:  ElevatedButtonThemeData(
+            buttonTheme: const ButtonThemeData(
+              buttonColor: Color.fromRGBO(191, 20, 106, 1.0),
+              textTheme: ButtonTextTheme.primary,
+            ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(191, 20, 106, 1.0),), //button color
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white,), //text (and icon)
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color.fromRGBO(191, 20, 106, 1.0),
+                ), //button color
+                foregroundColor: MaterialStateProperty.all<Color>(
+                  Colors.white,
+                ), //text (and icon)
               ),
+            ),
+            textTheme: GoogleFonts.aBeeZeeTextTheme(
+              Theme.of(context).textTheme,
             ),
           ),
           darkTheme: ThemeData(
@@ -84,11 +92,18 @@ class MyApp extends StatelessWidget {
               buttonColor: Color.fromRGBO(191, 20, 106, 1.0),
               textTheme: ButtonTextTheme.primary,
             ),
-            elevatedButtonTheme:  ElevatedButtonThemeData(
+            elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(191, 20, 106, 1.0),), //button color
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white,), //text (and icon)
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color.fromRGBO(191, 20, 106, 1.0),
+                ), //button color
+                foregroundColor: MaterialStateProperty.all<Color>(
+                  Colors.white,
+                ), //text (and icon)
               ),
+            ),
+            textTheme: GoogleFonts.aBeeZeeTextTheme(
+              Theme.of(context).textTheme,
             ),
           ),
           themeMode: settingsController.themeMode,
