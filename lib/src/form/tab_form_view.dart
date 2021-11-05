@@ -68,7 +68,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Radio",
             infoText:
-                "El cáncer de mama es el cáncer más frecuente en las mujeres en México y en el mundo",
+                "Es recomendable que el radio del tamaño tumoral sea medido en milímetros en tres planos",
             onNext: (mean, se, worst) {
               model.radius.assignValues(mean, se, worst);
               _goToView(++currentIndex);
@@ -79,7 +79,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Textura",
             infoText:
-                " El cáncer de mama es también el cáncer que más decesos produce en México y en el mundo",
+                "La textura de la imagen es la propiedad que representa la desviación estándar entre las tonalidades de grises presentes en la imagen del tumor.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.texture.assignValues(mean, se, worst);
@@ -91,7 +91,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Perímetro",
             infoText:
-                "Más de 1 millón de mujeres se detectan en el mundo anualmente con este padecimiento",
+                "El perímetro de un tumor es lo que define los bordes del tumor en cuestión",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.perimeter.assignValues(mean, se, worst);
@@ -103,7 +103,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Área",
             infoText:
-                "En México, el promedio de edad de diagnóstico de cáncer de mama es de 50 años",
+                "El área de un tumor debe de ser medido con relación a la dimensión más larga del tumor invasivo",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.area.assignValues(mean, se, worst);
@@ -115,7 +115,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Suavidad",
             infoText:
-                "El tabaquismo, el consumo de alcohol, la obesidad y el consumo crónico de esteroides son, entre otros, factores de riesgo para el cáncer de mama",
+                "La suavidad de un tumor es la variación local entre la distancia del radio y la media de los dos radios circundantes.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.smoothness.assignValues(mean, se, worst);
@@ -127,7 +127,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Compacidad",
             infoText:
-                "En México, el 70% de pacientes jóvenes que se presentan con cáncer de mama son detectadas en etapa avanzada.",
+                "La compacidad de un tumor puede ser calculado por la fórmula de perímetro al cuadrado multiplicado por el doble de su área.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.compactness.assignValues(mean, se, worst);
@@ -139,7 +139,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Concavidad",
             infoText:
-                "Entre el 11 y 15% de los casos son de mujeres de 40 o menos años",
+                "La concavidad del tumor representa la severidad de puntos cóncavos presentes en su contorno.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.concavity.assignValues(mean, se, worst);
@@ -151,7 +151,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Puntos cóncavos",
             infoText:
-                "Realizar actividades físicas con frecuencia reduce el riesgo de padecer cáncer de mama",
+                "Los puntos cóncavos de un tumor hacen referencia a la cantidad de proporciones cóncavas presentes en el contorno del tumor.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.points.assignValues(mean, se, worst);
@@ -163,7 +163,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Simetría",
             infoText:
-                "A partir de los 25 años, es recomendable hacerse una revisión anual",
+                "La simetría de un tumor es calculada primero encontrando la distancia más larga desde el centro del núcleo hasta un punto en el perímetro. Después, se realiza una medición de las líneas perpendiculares a la línea medida.",
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) {
               model.symmetry.assignValues(mean, se, worst);
@@ -175,7 +175,7 @@ class _TabFormViewState extends State<TabFormView> {
           FormViewTemplate(
             section: "Dimensión fractal",
             infoText:
-                "Después de los 40 años, es recomendable hacerse una mamografía anual",
+                "la dimensión fractal de un tumor es medido al dividir el logaritmo del perímetro observado por el logaritmo de la distancia de la vara utilizada.",
             lastSection: true,
             onBack: () => _goToView(--currentIndex),
             onNext: (mean, se, worst) async {

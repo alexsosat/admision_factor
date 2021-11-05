@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
           theme: ThemeData(
+            brightness: Brightness.light,
             colorScheme: const ColorScheme.light(
               primary: Color.fromRGBO(215, 105, 150, 1.0),
               secondary: Color.fromRGBO(234, 155, 195, 1.0),
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           darkTheme: ThemeData(
+            brightness: Brightness.dark,
             colorScheme: const ColorScheme.dark(
               primary: Color.fromRGBO(215, 105, 150, 1.0),
               secondary: Color.fromRGBO(234, 155, 195, 1.0),
@@ -103,7 +105,17 @@ class MyApp extends StatelessWidget {
               ),
             ),
             textTheme: GoogleFonts.aBeeZeeTextTheme(
-              Theme.of(context).textTheme,
+              Theme.of(context).textTheme.copyWith(
+                    bodyText2: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: Colors.white,
+                        ),
+                    subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
+                          color: Colors.white,
+                        ),
+                    headline5: Theme.of(context).textTheme.headline5!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
             ),
           ),
           themeMode: settingsController.themeMode,

@@ -61,21 +61,8 @@ class SettingsView extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-                "En cumplimiento con la clase de Fundamentos de Ciencia de datos impartida por la universidad deMontemorelos"),
+                "En cumplimiento con la clase de Fundamentos de Ciencia de datos impartida por la universidad de Montemorelos"),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/app_logo_grey.png",
-                height: 75,
-                ),
-                const SizedBox(width: 30),
-                Image.asset("assets/images/um_logo.png",
-                height: 50,
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
           ],
         ),
       ),
