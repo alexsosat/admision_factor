@@ -26,10 +26,6 @@ class FormViewTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _meanController.text = "345";
-    _seController.text = "125.21";
-    _worstController.text = "74.5";
-
     final row = Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
