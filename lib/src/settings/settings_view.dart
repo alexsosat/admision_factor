@@ -17,7 +17,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Ajustes'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -37,32 +37,18 @@ class SettingsView extends StatelessWidget {
               items: const [
                 DropdownMenuItem(
                   value: ThemeMode.system,
-                  child: Text('System Theme'),
+                  child: Text('Tema del sistema'),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.light,
-                  child: Text('Light Theme'),
+                  child: Text('Tema claro'),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.dark,
-                  child: Text('Dark Theme'),
+                  child: Text('Tema oscuro'),
                 )
               ],
             ),
-            const Expanded(child: SizedBox()),
-            const Text("Aplicación realizada por:"),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0),
-              child: Text("\u2022 Alejandro Rafael Sosa Trejo"),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0),
-              child: Text("\u2022 Miguel Angel Varela Delgado"),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-                "En cumplimiento con la clase de Fundamentos de Ciencia de datos impartida por la universidad de Montemorelos"),
-            const SizedBox(height: 20),
           ],
         ),
       ),

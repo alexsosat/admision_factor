@@ -3,16 +3,13 @@ import 'dart:convert';
 import 'package:admision_factor/src/form/models/breast_model.dart';
 import 'package:http/http.dart' as http;
 
-
-
-
 Future<String?> postBreastForm(BreastModel model) async {
-  var url = Uri.parse('https://admission-factor-api.herokuapp.com/breast_cancer_prediction');
+  var url = Uri.parse(
+      'https://admission-factor-api.herokuapp.com/breast_cancer_prediction');
 
-  var response = await http.post(url,
-    headers: {
-      'Content-Type': 'application/json'
-    },
+  var response = await http.post(
+    url,
+    headers: {'Content-Type': 'application/json'},
     body: jsonEncode(model.toMap()),
   );
   //print('Response status: ${response.statusCode}');
